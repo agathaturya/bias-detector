@@ -4,7 +4,7 @@ var TWITTER_API=["","","",""];
 
 
 //getting api keys from config
-http('GET', chrome.runtime.getURL('confg.json'), '', function(obj)){
+http('GET', chrome.runtime.getURL('config.json'), '', function(obj)){
 MICROSOFT_API_KEY=obj.microsoft_key;
 GOOGLE_API=obj.google_key;
 TWITTER_API[0]=obj.twitter_oauth_access_token
