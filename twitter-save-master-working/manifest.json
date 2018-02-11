@@ -1,7 +1,7 @@
 {
    "browser_action": {
       "default_popup": "popup.html",
-      "default_title": "CheckBias"
+      "default_title": "BiasDetector"
    },
 
    "background": {
@@ -21,7 +21,7 @@
    },
    "manifest_version": 2,
     "content_security_policy": "script-src 'self' https://eastus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment https://twitter.com https://eastus.api.cognitive.microsoft.com; object-src 'self'",
-    "name": "Check Bias",
+    "name": "Bias Detector",
    "permissions": [ "activeTab", "tabs", "https://twitter.com/*" , "https://eastus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment", "storage" ],
    "short_name": "Tsave",
    "version": "1.0.0"
