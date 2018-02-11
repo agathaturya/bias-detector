@@ -42,7 +42,7 @@ $(document).ready(function () {
 		xhr.setRequestHeader("Ocp-Apim-Subscription-Key", "0caddf51677e44aa948d5891c54d709d");
 		xhr.setRequestHeader("Content-Type", "application/json");
 		xhr.setRequestHeader("Cache-Control", "no-cache");
-		xhr.setRequestHeader("Postman-Token", "29f3199e-4b78-6ed0-2215-0282664d8163");
+		xhr.setRequestHeader("Postman-Token", "");
 
 		xhr.send(documents);
 		fetch(url, {
