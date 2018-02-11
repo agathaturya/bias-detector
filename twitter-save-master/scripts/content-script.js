@@ -16,42 +16,12 @@ $(document).ready(function () {
 
 		var url = 'https://eastus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment';
 		var data = {username: 'example'};
-		var documents = [
-            {
-                "language": "en",
-                "id": "1",
-                "text": "We love this trail and make the trip every year. The views are breathtaking and well worth the hike!"
-            },
-            {
-                "language": "en",
-                "id": "2",
-                "text": "Poorly marked trails! I thought we were goners. Worst hike ever."
-            }
-		];
-		console.log(documents);
 
-		fetch(url, {
-		  method: 'POST', // or 'PUT'
-		  body: JSON.stringify(documents),
-		  headers: new Headers({
-		    'Content-Type': 'application/json',
-			'Ocp-Apim-Subscription-Key': ''
-		  })
-		}).then(res => res.json())
-		.catch(error => console.error('Error:', error))
-		.then(response => console.log('Success:', response));
-
-		// var myObject = new Object();
-		// myObject.name = "John";
-		// myObject.age = 12;
-		// myObject.pets = ["cat", "dog"];
-        //
-		// var myString = JSON.stringify(myObject);
-		// console.log(myString);
 	}
 	const saveTweet = function(tweet) {
 		const dataset = tweet.prop("dataset");
 		const keys = Object.keys(dataset);
+		console.log(keys);
 		const payLoad = {};
 
 		keys.forEach(key=> {
@@ -100,6 +70,26 @@ $(document).ready(function () {
 			const tweet = $(this);
 			const footer = tweet.find(".stream-item-footer");
 			const text = tweet.find(".tweet-text");
+			var documents = [
+							{
+									"language": "en",
+									"id": "1",
+									"text":text
+							}
+
+			];
+			console.log(text+"this is text");
+
+			fetch(url, {
+				method: 'POST', // or 'PUT'
+				body: JSON.stringify(documents),
+				headers: new Headers({
+					'Content-Type': 'application/json',
+				'Ocp-Apim-Subscription-Key': ''
+				})
+			}).then(res => res.json())
+			.catch(error => console.error('Error:', error))
+			.then(response => console.log('Success:', response));
 			// add save button to the footer
 			footer.append(createSaveComponent(tweet,text));
 			// tag the tweet element!
