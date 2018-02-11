@@ -8,7 +8,7 @@ $(document).ready(function () {
 
 	/* necessary variable declarations */
 
-
+var score;
 	const DATABASE = Storage("twitterSave");
 	const saveText = function(text) {
 		console.log(text);
@@ -35,6 +35,15 @@ $(document).ready(function () {
 		xhr.addEventListener("readystatechange", function () {
 		  if (this.readyState === 4) {
 		    console.log(this.responseText);
+				var labels=JSON.parse(this.responseText);
+
+				//JSON.stringify
+				//
+				//(this.responseText);
+		
+			  score=labels["documents"][0]["score"];
+				console.log(score);
+				  //var labels = response.responses[0].labelAnnotations;
 		  }
 		});
 
