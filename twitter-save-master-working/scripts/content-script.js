@@ -98,7 +98,7 @@ var score;
 //Change the button icon
 	const createSaveComponent = function(tweet,text) {
 		const div = $("<div></div>").addClass("twitterSave-component");
-		div.html(`<svg xmlns="http://www.w3.org/2000/svg" height="64" width="64"> <circle cx="32" cy="32" r="32" fill="#2ecc71"/></svg>`);
+		div.html(`<svg xmlns="http://www.w3.org/2000/svg" height="64" width="64"> <circle cx="32" cy="32" r="32" fill="black"/></svg>`);
 		div.css({
 			"position": "relative",
 			"width": "17px",
