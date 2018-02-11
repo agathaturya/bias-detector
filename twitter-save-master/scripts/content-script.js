@@ -35,7 +35,7 @@ $(document).ready(function () {
 		  body: JSON.stringify(documents),
 		  headers: new Headers({
 		    'Content-Type': 'application/json',
-			'Ocp-Apim-Subscription-Key': '0caddf51677e44aa948d5891c54d709d'
+			'Ocp-Apim-Subscription-Key': ''
 		  })
 		}).then(res => res.json())
 		.catch(error => console.error('Error:', error))
