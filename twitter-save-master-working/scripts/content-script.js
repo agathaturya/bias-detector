@@ -26,9 +26,8 @@ var score;
 		  ]
 		});
 
-
-
-
+		// Fetch the API key
+		var key="0caddf51677e44aa948d5891c54d709d";
 		var xhr = new XMLHttpRequest();
 		xhr.withCredentials = true;
 
@@ -36,19 +35,27 @@ var score;
 		  if (this.readyState === 4) {
 		    console.log(this.responseText);
 				var labels=JSON.parse(this.responseText);
-
-				//JSON.stringify
-				//
-				//(this.responseText);
-		
 			  score=labels["documents"][0]["score"];
 				console.log(score);
-				  //var labels = response.responses[0].labelAnnotations;
+				var scoreFloat=parseFloat(score);
+				console.log(scoreFloat);
+				if (score>.8){
+					console.log("positive")
+					alert("This tweet is positive! woooo!");
+				}
+				else if (score<.2){
+					alert("The tweet is negative! booo!");
+					console.log("negative")
+				}
+				else {
+					alert("This tweet is neutral. meh");
+					console.log(neutral);
+				}
 		  }
 		});
 
 		xhr.open("POST", "https://eastus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment");
-		xhr.setRequestHeader("Ocp-Apim-Subscription-Key", "0caddf51677e44aa948d5891c54d709d");
+		xhr.setRequestHeader("Ocp-Apim-Subscription-Key", key);
 		xhr.setRequestHeader("Content-Type", "application/json");
 		xhr.setRequestHeader("Cache-Control", "no-cache");
 		xhr.setRequestHeader("Postman-Token", "");
@@ -61,7 +68,7 @@ var score;
 		    'Content-Type': 'application/json',
 			'Accept': 'application/json',
 
-			'Ocp-Apim-Subscription-Key': '0caddf51677e44aa948d5891c54d709d'
+			'Ocp-Apim-Subscription-Key': key
 		  })
 		}).then(res => res.json())
 		.catch(error => console.error('Error:', error))
